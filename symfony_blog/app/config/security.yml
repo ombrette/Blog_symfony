@@ -1,0 +1,39 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        BlogBundle\Entity\User: plaintext
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity:
+                class: BlogBundle:User
+                #property: username
+                # if you're using multiple entity managers
+                # manager_name: customer
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            pattern:    ^/
+            provider: our_db_provider
+            # form_login:
+            #     login_path: test_login
+            #     check_path: test_login_check
+            #     default_target_path: test_posts
+            # logout:
+            #     path: test_logout
+            #     target: test_posts
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html

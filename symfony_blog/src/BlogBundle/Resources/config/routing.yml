@@ -1,0 +1,53 @@
+BlogBundle_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+
+BlogBundle_posts:
+    path:     /posts
+    defaults: { _controller: BlogBundle:Post:posts }
+
+BlogBundle_post_single:
+    path:     /posts/{id}
+    defaults: { _controller: BlogBundle:Post:singlePost }
+    requirements:
+        id:    \d+
+
+BlogBundle_categories:
+    path:     /categories/{id}
+    defaults: { _controller: BlogBundle:Category:postsByCategory }
+    requirements:
+        id:    \d+
+
+BlogBundle_admin:
+    path:     /admin
+    defaults: { _controller: BlogBundle:Default:admin }
+
+BlogBundle_admin_posts:
+    path:     /admin/posts
+    defaults: { _controller: BlogBundle:Post:posts }
+
+BlogBundle_admin_post_new:
+    path:     /admin/posts/new
+    defaults: { _controller: BlogBundle:Post:new }
+    requirements:
+        id:    \d+
+
+BlogBundle_admin_tags:
+    path:     /admin/tags
+    defaults: { _controller: BlogBundle:Tag:tags }
+
+BlogBundle_admin_tag_new:
+    path:     /admin/tags/new
+    defaults: { _controller: BlogBundle:Tag:new }
+    requirements:
+        id:    \d+
+
+BlogBundle_admin_categories:
+    path:     /admin/categories
+    defaults: { _controller: BlogBundle:Category:categories }
+
+BlogBundle_admin_category_new:
+    path:     /admin/categories/new
+    defaults: { _controller: BlogBundle:Category:new }
+    requirements:
+        id:    \d+

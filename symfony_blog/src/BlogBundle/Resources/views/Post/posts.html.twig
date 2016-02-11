@@ -1,0 +1,23 @@
+{% extends "TestBundle::layout.html.twig" %}
+
+{% block content %}
+	{% for post in posts %}
+	<ul>
+	   <li>
+	       <p>{{ post.content }}</p>
+	   </li>
+	   <li>
+	       <p>{{ post.author.username }}</p>
+	   </li>
+	   <li>
+	       <p>{{ post.visible ? "oui" : "non" }}</p>
+	   </li>
+	   <li>
+	       <p>{{ post.date|date('Y-m-d') }}</p>
+	   </li>
+	   <li>
+	       <a href="{{ path('test_single', {'id': post.id }) }}">En savoir plus</a>
+	   </li>
+	</ul>
+	{% endfor %}
+{% endblock %}
