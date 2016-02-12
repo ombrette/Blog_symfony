@@ -22,6 +22,16 @@ BlogBundle_admin:
     path:     /admin
     defaults: { _controller: BlogBundle:Default:admin }
 
+BlogBundle_admin_login:
+    path:     /admin/login
+    defaults: { _controller: BlogBundle:Login:login }
+
+BlogBundle_admin_login_check:
+    path:     /admin/login_check
+
+BlogBundle_admin_logout:
+    path:     /admin/logout
+
 BlogBundle_admin_posts:
     path:     /admin/posts
     defaults: { _controller: BlogBundle:Post:posts }

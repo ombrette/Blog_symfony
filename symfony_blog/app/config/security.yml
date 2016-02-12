@@ -23,13 +23,13 @@ security:
             anonymous: ~
             pattern:    ^/
             provider: our_db_provider
-            # form_login:
-            #     login_path: test_login
-            #     check_path: test_login_check
-            #     default_target_path: test_posts
-            # logout:
-            #     path: test_logout
-            #     target: test_posts
+            form_login:
+                login_path: BlogBundle_admin_login
+                check_path: BlogBundle_admin_login_check
+                default_target_path: BlogBundle_admin
+            logout:
+                path: BlogBundle_admin_logout
+                target: BlogBundle_homepage
             # activate different ways to authenticate
 
             # http_basic: ~

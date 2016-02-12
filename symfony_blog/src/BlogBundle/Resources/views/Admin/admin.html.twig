@@ -1,14 +1,9 @@
 {% extends "BlogBundle::layout.html.twig" %}
 
 {% block content %}
-{#% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %#}
-
-
     {% if app.user %}
-        <a href="{{ path('test_logout') }}">Déconnexion</a>
+        <a href="{{ path('BlogBundle_admin_logout') }}">Déconnexion</a>
     {% else %}
-        <a href="{{ path('test_login') }}">Connexion</a>
+        <a href="{{ path('BlogBundle_admin_login') }}">Connexion</a>
     {% endif %}
 {% endblock %}
