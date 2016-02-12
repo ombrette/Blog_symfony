@@ -2,33 +2,13 @@
 <html>
 <head>
    <title>Affichage des Posts</title>
-    {% stylesheets 'bundles/test/css/*' filter='cssrewrite' %}
+    {% stylesheets '@BlogBundle/Resources/public/css/*' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
-    <style type="text/css">
-    .main{
-    	height: auto;
-    	background: #fff;
-        color: #272727;
-        padding: 20px;
-    }
-
-    .form{
-    	line-height: normal;
-    	vertical-align: middle;
-    	color: #272727;
-
-    }
-
-    div.form-group{
-    	text-align: left;
-    }
-    </style>
 </head>
-<body style="background: darkred; color: white">
+<body>
     {{ app.request.query.get("tata") }}
-<div class="main" style="width:80%; margin:0 auto;">
-	<h1 style="text-align:center; margin-bottom:50px;">Facebook n°2</h1>
+
     {% block content %}
     {% endblock %}
 </div>

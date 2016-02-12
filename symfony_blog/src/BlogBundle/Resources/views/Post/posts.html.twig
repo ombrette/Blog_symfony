@@ -1,4 +1,4 @@
-{% extends "TestBundle::layout.html.twig" %}
+{% extends 'BlogBundle::layout.html.twig' %}
 
 {% block content %}
 	{% for post in posts %}
@@ -16,7 +16,7 @@
 	       <p>{{ post.date|date('Y-m-d') }}</p>
 	   </li>
 	   <li>
-	       <a href="{{ path('test_single', {'id': post.id }) }}">En savoir plus</a>
+	       <a href="{{ path('BlogBundle_post_single', {'id': post.id }) }}">En savoir plus</a>
 	   </li>
 	</ul>
 	{% endfor %}

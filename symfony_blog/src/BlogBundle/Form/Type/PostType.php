@@ -13,20 +13,13 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content', TextType::class, array(
+            ->add('title', TextType::class, array(
             	'required' => false
             ))
-            ->add('visible', ChoiceType::class, array(
-            	'required' => true,
-			    'choices'    => array(
-			    	'yes'  => 'Oui',
-			    	'no'  => 'Non',
-			    ),
-			    'data' => 'yes',
-			    'multiple' => false,
-			    'expanded' => true
-			))
-            ->add('date', DateType::class)
+            ->add('content', TextType::class, array(
+                'required' => false
+            ))
+            ->add('createdAt', DateType::class)
             ->add('save', SubmitType::class, array('label' => 'Envoyer'))
         ;
     }
