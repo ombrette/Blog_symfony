@@ -10,10 +10,7 @@
 	       <p>{{ post.author.username }}</p>
 	   </li>
 	   <li>
-	       <p>{{ post.visible ? "oui" : "non" }}</p>
-	   </li>
-	   <li>
-	       <p>{{ post.date|date('Y-m-d') }}</p>
+	       <p>{{ post.createdAt|date('Y-m-d') }}</p>
 	   </li>
 	   <li>
 	       <a href="{{ path('BlogBundle_post_single', {'id': post.id }) }}">En savoir plus</a>

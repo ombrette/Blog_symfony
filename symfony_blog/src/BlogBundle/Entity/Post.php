@@ -53,16 +53,14 @@ class Post
     private $author;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="tags", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
+     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
      */
     private $tags;
 

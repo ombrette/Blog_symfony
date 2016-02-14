@@ -19,6 +19,16 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
     	return $query->getResult();
     }
 
+    public function getByNumber($number)
+    {
+		$query = $this->createQueryBuilder('post')
+			->setMaxResults($number)
+		    ->orderBy('post.id', 'DESC')
+		    ->getQuery();
+    	
+    	return $query->getResult();
+    }
+
     public function getOne($id)
     {
 		$query = $this->createQueryBuilder('post')

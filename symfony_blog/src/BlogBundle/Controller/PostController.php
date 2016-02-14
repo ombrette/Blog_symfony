@@ -23,9 +23,15 @@ class PostController extends Controller
         	]);
     }
 
-    public function showAction()
+    public function showAction($id)
     {
-        return $this->render('BlogBundle:Post:show.html.twig');
+        $repository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+
+        $single = $repository->getOne($id);
+
+        return $this->render('BlogBundle:Post:show.html.twig', [
+                'single' => $single,
+            ]);
     }
 
     public function newAction(Request $request)

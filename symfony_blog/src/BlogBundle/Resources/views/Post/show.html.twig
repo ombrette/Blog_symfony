@@ -1,0 +1,8 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block content %}
+<p>{{ single.id }}</p>
+<p>{{ single.content }}</p>
+<p>{{ single.author.username }}</p>
+<p>{{ single.createdAt|date('Y-m-d') }}</p>
+{% endblock %}
