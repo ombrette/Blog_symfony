@@ -8,7 +8,7 @@ BlogBundle_posts:
 
 BlogBundle_post_single:
     path:     /posts/{id}
-    defaults: { _controller: BlogBundle:Post:singlePost }
+    defaults: { _controller: BlogBundle:Post:show }
     requirements:
         id:    \d+
 

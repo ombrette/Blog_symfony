@@ -12,11 +12,33 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('BlogBundle:Default:index.html.twig');
+        $repository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+
+        $posts = $repository->getByNumber(5);
+
+        return $this->render('BlogBundle:Default:index.html.twig', [
+                'posts' => $posts
+            ]);
     }
 
     public function adminAction()
     {
-        return $this->render('BlogBundle:Admin:admin.html.twig');
+        $repository = $this->getDoctrine()->getRepository('BlogBundle:Post');
+
+        $posts = $repository->getAll();
+
+        $repository = $this->getDoctrine()->getRepository('BlogBundle:Category');
+
+        $categories = $repository->getAll();
+
+        $repository = $this->getDoctrine()->getRepository('BlogBundle:Tag');
+
+        $tags = $repository->getAll();
+
+        return $this->render('BlogBundle:Admin:admin.html.twig', [
+                'posts' => $posts,
+                'categories' => $categories,
+                'tags' => $tags
+            ]);
     }
 }
