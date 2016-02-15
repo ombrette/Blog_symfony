@@ -10,28 +10,18 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class PostType extends AbstractType
+class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, array(
+            ->add('author', TextType::class, array(
             	'required' => false
             ))
             ->add('content', TextareaType::class, array(
                 'required' => false
             ))
-            ->add('category', EntityType::class, array(
-                'class' => 'BlogBundle:Category',
-                'choice_label' => 'name'
-            ))
-            ->add('tags', EntityType::class, array(
-                'class' => 'BlogBundle:Tag',
-                'choice_label'  => 'name',
-                'multiple'      => true,
-                'required'      => false
-            ))
-            ->add('createdAt', DateType::class)
+            ->add('postedAt', DateType::class)
             ->add('save', SubmitType::class, array('label' => 'Envoyer'))
         ;
     }

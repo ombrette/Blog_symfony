@@ -1,8 +1,35 @@
 {% extends "BlogBundle::layout.html.twig" %}
 
+{% block title %}
+<h1>{{ single.title }}</h1>
+{% endblock %}
+
 {% block content %}
-<p>{{ single.id }}</p>
 <p>{{ single.content }}</p>
-<p>{{ single.author.username }}</p>
-<p>{{ single.createdAt|date('Y-m-d') }}</p>
+<p>Auteur : {{ single.author.username }}</p>
+<p>Créé le : {{ single.createdAt|date('Y-m-d') }}</p>
+{% if single.category %}
+	<p>Catégorie : {{ single.category.name }}</p>
+{% endif %}
+
+{% if single.tags|length %}
+	<p>Tags : </p>
+	{% for tag in single.tags %}
+		<span>{{ tag.name }}</span>
+	{% endfor %}
+{% endif %}
+
+{% if comments|length %}
+	<p>Commentaires : </p>
+	{% for comment in comments %}
+		<p>{{ comment.content }}</p>
+		<span>{{ comment.author }}</span>
+		<span>{{ comment.postedAt }}</span>
+	{% endfor %}
+{% endif %}
+<div>
+	{{form_start(form, {'attr': {'class': 'form'}})}}
+	{{form_row(form.content)}}
+	{{form_end(form)}}
+</div>
 {% endblock %}

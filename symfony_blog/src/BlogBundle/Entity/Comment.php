@@ -42,6 +42,12 @@ class Comment
      */
     private $postedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Post")
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     */
+    private $post;
+
 
     /**
      * Get id
@@ -123,6 +129,21 @@ class Comment
     public function getPostedAt()
     {
         return $this->postedAt;
+    }
+
+
+    /**
+     * Set post
+     *
+     * @param string $post
+     *
+     * @return Comment
+     */
+    public function setPost($post)
+    {
+        $this->post = $post;
+
+        return $this;
     }
 }
 

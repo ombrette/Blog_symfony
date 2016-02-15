@@ -4,12 +4,11 @@ namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use BlogBundle\Form\Type\PostType;
+use BlogBundle\Entity\Post;
 
 class DefaultController extends Controller
 {
-	/**
-     * @Route("/")
-     */
     public function indexAction()
     {
         $repository = $this->getDoctrine()->getRepository('BlogBundle:Post');

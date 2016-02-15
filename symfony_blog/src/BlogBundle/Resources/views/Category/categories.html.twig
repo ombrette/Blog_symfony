@@ -1,0 +1,17 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}
+<h1>Back office - Categories list</h1>
+{% endblock %}
+
+{% block content %}
+	<a href="{{ path('BlogBundle_admin_category_new') }}">Ajouter une nouvelle catégorie</a>
+	<table>
+	<th>Name</th>
+	{% for category in categories %}
+	<tr>
+	    <td>{{ category.name }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

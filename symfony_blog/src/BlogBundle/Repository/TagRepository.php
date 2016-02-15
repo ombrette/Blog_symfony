@@ -10,4 +10,12 @@ namespace BlogBundle\Repository;
  */
 class TagRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function getAll()
+    {
+		$query = $this->createQueryBuilder('tag')
+		    ->orderBy('tag.id', 'DESC')
+		    ->getQuery();
+    	
+    	return $query->getResult();
+    }
 }

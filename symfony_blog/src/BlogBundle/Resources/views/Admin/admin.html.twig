@@ -1,9 +1,21 @@
 {% extends "BlogBundle::layout.html.twig" %}
 
+{% block title %}
+<h1>Back office - Symfony Blog</h1>
+{% endblock %}
+
 {% block content %}
     {% if app.user %}
         <a href="{{ path('BlogBundle_admin_logout') }}">Déconnexion</a>
     {% else %}
         <a href="{{ path('BlogBundle_admin_login') }}">Connexion</a>
+    {% endif %}
+
+    {% if app.user %}
+    <div>
+	    <a href="{{ path('BlogBundle_admin_posts') }}">Articles</a>
+	    <a href="{{ path('BlogBundle_admin_tags') }}">Tags</a>
+	    <a href="{{ path('BlogBundle_admin_categories') }}">Categories</a>
+    </div>
     {% endif %}
 {% endblock %}

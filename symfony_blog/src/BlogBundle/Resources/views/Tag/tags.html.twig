@@ -1,0 +1,17 @@
+{% extends 'BlogBundle::layout.html.twig' %}
+
+{% block title %}
+<h1>Back office - Tags list</h1>
+{% endblock %}
+
+{% block content %}
+	<a href="{{ path('BlogBundle_admin_tag_new') }}">Ajouter un nouveau tag</a>
+	<table>
+	<th>Name</th>
+	{% for tag in tags %}
+	<tr>
+	    <td>{{ tag.name }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

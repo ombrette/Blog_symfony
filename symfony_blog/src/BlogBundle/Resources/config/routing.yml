@@ -22,19 +22,9 @@ BlogBundle_admin:
     path:     /admin
     defaults: { _controller: BlogBundle:Default:admin }
 
-BlogBundle_admin_login:
-    path:     /admin/login
-    defaults: { _controller: BlogBundle:Login:login }
-
-BlogBundle_admin_login_check:
-    path:     /admin/login_check
-
-BlogBundle_admin_logout:
-    path:     /admin/logout
-
 BlogBundle_admin_posts:
     path:     /admin/posts
-    defaults: { _controller: BlogBundle:Post:posts }
+    defaults: { _controller: BlogBundle:Post:adminPosts }
 
 BlogBundle_admin_post_new:
     path:     /admin/posts/new
@@ -61,3 +51,13 @@ BlogBundle_admin_category_new:
     defaults: { _controller: BlogBundle:Category:new }
     requirements:
         id:    \d+
+
+BlogBundle_admin_login:
+    path:     /login
+    defaults: { _controller: BlogBundle:Login:login }
+
+BlogBundle_admin_logout:
+    path:     /logout
+
+BlogBundle_admin_login_check:
+    path:     /login_check
